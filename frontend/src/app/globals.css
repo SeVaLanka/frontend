@@ -3,13 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Custom Color Palette */
+  --primary: #499537;
+  --secondary: #3D98D1;
+  --tertiary: #D4A27A;
+  --quaternary: #C2B7DA;
+  
+  /* Semantic Colors */
+  --error: #CA545A;
+  --warning: #C5953B;
+  --success: #677D00;
+  --info: #627ACE;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
