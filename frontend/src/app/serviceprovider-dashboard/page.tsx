@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { ServiceProviderLayout } from '../components/organism/service-provider-layout/service-provider-layout';
 import { DashboardStatsGrid } from '../components/organism/dashboard-stats-grid/dashboard-stats-grid';
 import { StatsCardProps } from '../components/atoms/stats-card/stats-card';
 import { SimpleBarChart, ChartDataPoint } from '../components/molecules/simple-bar-chart/simple-bar-chart';
@@ -225,107 +226,97 @@ export default function ServiceProviderDashboard() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-6">
-            <h1 className="text-3xl font-bold text-gray-900">Service Provider Dashboard</h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Welcome back! Here's an overview of your business performance.
-            </p>
+    <ServiceProviderLayout activePageId="dashboard">
+      <div className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Stats Grid */}
+          <div className="mb-8">
+            <DashboardStatsGrid 
+              stats={dashboardStats}
+              loading={loading}
+              gap="lg"
+            />
           </div>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Stats Grid */}
-        <div className="mb-8">
-          <DashboardStatsGrid 
-            stats={dashboardStats}
-            loading={loading}
-            gap="lg"
-          />
-        </div>
-
-        {/* Main Content Layout */}
-        <div className="space-y-8">
-          {/* Top Row: Chart and Notifications */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Earnings Chart */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <SimpleBarChart
-                  title="Earnings Overview"
-                  data={earningsData}
-                  height={300}
-                  color="#499537"
-                  showValues={false}
-                />
-              </div>
-            </div>
-
-            {/* Notifications - Same height as chart */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl border border-gray-200 p-6 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Notifications</h2>
-                  <Button variant="ghost" size="sm">
-                    Mark all read
-                  </Button>
+          {/* Main Content Layout */}
+          <div className="space-y-8">
+            {/* Top Row: Chart and Notifications */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Earnings Chart */}
+              <div className="lg:col-span-2">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <SimpleBarChart
+                    title="Earnings Overview"
+                    data={earningsData}
+                    height={300}
+                    color="#499537"
+                    showValues={false}
+                  />
                 </div>
-                <div className="overflow-y-auto" style={{ height: '300px' }}>
-                  <div className="space-y-3 pr-2">
-                    {notifications.map((notification, index) => (
-                      <NotificationItem
-                        key={index}
-                        {...notification}
-                        size="sm"
-                      />
-                    ))}
+              </div>
+
+              {/* Notifications - Same height as chart */}
+              <div className="lg:col-span-1">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 h-full">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-xl font-semibold text-gray-900">Notifications</h2>
+                    <Button variant="ghost" size="sm">
+                      Mark all read
+                    </Button>
+                  </div>
+                  <div className="overflow-y-auto" style={{ height: '300px' }}>
+                    <div className="space-y-3 pr-2">
+                      {notifications.map((notification, index) => (
+                        <NotificationItem
+                          key={index}
+                          {...notification}
+                          size="sm"
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Full Width Upcoming Jobs Table */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">Upcoming Jobs</h2>
-              <Button variant="outline" size="sm">
-                View All
-              </Button>
+            {/* Full Width Upcoming Jobs Table */}
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-semibold text-gray-900">Upcoming Jobs</h2>
+                <Button variant="outline" size="sm">
+                  View All
+                </Button>
+              </div>
+              <DataTable
+                columns={upcomingJobsColumns}
+                data={upcomingJobsData}
+                loading={loading}
+                hoverable
+                size="sm"
+              />
             </div>
-            <DataTable
-              columns={upcomingJobsColumns}
-              data={upcomingJobsData}
-              loading={loading}
-              hoverable
-              size="sm"
-            />
-          </div>
 
-          {/* Full Width Recent Reviews */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">Recent Reviews</h2>
-              <Button variant="outline" size="sm">
-                View All
-              </Button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {recentReviews.map((review, index) => (
-                <ReviewCard
-                  key={index}
-                  {...review}
-                  size="sm"
-                />
-              ))}
+            {/* Full Width Recent Reviews */}
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-semibold text-gray-900">Recent Reviews</h2>
+                <Button variant="outline" size="sm">
+                  View All
+                </Button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {recentReviews.map((review, index) => (
+                  <ReviewCard
+                    key={index}
+                    {...review}
+                    size="sm"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ServiceProviderLayout>
   );
 }
