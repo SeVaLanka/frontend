@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ServiceProviderLayout } from '../components/organism/service-provider-layout/service-provider-layout';
-import { DashboardStatsGrid } from '../components/organism/dashboard-stats-grid/dashboard-stats-grid';
-import { StatsCardProps } from '../components/atoms/stats-card/stats-card';
-import { SimpleBarChart, ChartDataPoint } from '../components/molecules/simple-bar-chart/simple-bar-chart';
-import { DataTable, TableColumn } from '../components/molecules/data-table/data-table';
-import { ReviewCard } from '../components/molecules/review-card/review-card';
-import { NotificationItem } from '../components/molecules/notification-item/notification-item';
-import { Button } from '../components/atoms/button/button';
+import { ServiceProviderLayout } from '../../components/organism/service-provider-layout/service-provider-layout';
+import { DashboardStatsGrid } from '../../components/organism/dashboard-stats-grid/dashboard-stats-grid';
+import { StatsCardProps } from '../../components/atoms/stats-card/stats-card';
+import { SimpleBarChart, ChartDataPoint } from '../../components/molecules/simple-bar-chart/simple-bar-chart';
+import { DataTable, TableColumn } from '../../components/molecules/data-table/data-table';
+import { ReviewCard } from '../../components/molecules/review-card/review-card';
+import { NotificationItem } from '../../components/molecules/notification-item/notification-item';
+import { Button } from '../../components/atoms/button/button';
 
 // Sample data for the dashboard
 const dashboardStats: StatsCardProps[] = [
@@ -228,7 +228,7 @@ export default function ServiceProviderDashboard() {
   return (
     <ServiceProviderLayout activePageId="dashboard">
       <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-8">
           {/* Stats Grid */}
           <div className="mb-8">
             <DashboardStatsGrid 
