@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { BookingHistoryGrid } from '../components/organism/booking-history-grid/booking-history-grid';
-import { BookingHistoryCardProps } from '../components/molecules/booking-history-card/booking-history-card';
+import { BookingHistoryGrid } from '../../components/organism/booking-history-grid/booking-history-grid';
+import { BookingHistoryCardProps } from '../../components/molecules/booking-history-card/booking-history-card';
 
 // Sample data that matches the image - using simple placeholder images
 const sampleBookings: BookingHistoryCardProps[] = [

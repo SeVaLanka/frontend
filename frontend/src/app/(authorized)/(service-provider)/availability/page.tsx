@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ServiceProviderLayout } from '../../components/organism/service-provider-layout/service-provider-layout';
-import { Calendar } from '../../components/molecules/calendar/calendar';
-import { TimeSlotManager, TimeSlot } from '../../components/molecules/time-slot-manager/time-slot-manager';
-import { AvailabilitySettings } from '../../components/molecules/availability-settings/availability-settings';
-import { Button } from '../../components/atoms/button/button';
+import { ServiceProviderLayout } from '../../../components/organism/service-provider-layout/service-provider-layout';
+import { Calendar } from '../../../components/molecules/calendar/calendar';
+import { TimeSlotManager, TimeSlot } from '../../../components/molecules/time-slot-manager/time-slot-manager';
+import { AvailabilitySettings } from '../../../components/molecules/availability-settings/availability-settings';
+import { Button } from '../../../components/atoms/button/button';
 
 export default function AvailabilityPage() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());

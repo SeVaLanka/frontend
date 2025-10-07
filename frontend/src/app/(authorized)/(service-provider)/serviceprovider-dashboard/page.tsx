@@ -2,14 +2,15 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ServiceProviderLayout } from '../../components/organism/service-provider-layout/service-provider-layout';
-import { DashboardStatsGrid } from '../../components/organism/dashboard-stats-grid/dashboard-stats-grid';
-import { StatsCardProps } from '../../components/atoms/stats-card/stats-card';
-import { SimpleBarChart, ChartDataPoint } from '../../components/molecules/simple-bar-chart/simple-bar-chart';
-import { DataTable, TableColumn } from '../../components/molecules/data-table/data-table';
-import { ReviewCard } from '../../components/molecules/review-card/review-card';
-import { NotificationItem } from '../../components/molecules/notification-item/notification-item';
-import { Button } from '../../components/atoms/button/button';
+import { ServiceProviderLayout } from '../../../components/organism/service-provider-layout/service-provider-layout';
+import { DashboardStatsGrid } from '../../../components/organism/dashboard-stats-grid/dashboard-stats-grid';
+import { StatsCardProps } from '../../../components/atoms/stats-card/stats-card';
+import { SimpleBarChart, ChartDataPoint } from '../../../components/molecules/simple-bar-chart/simple-bar-chart';
+import { Table } from '../../../components/organism/table/table';
+import { TableColumn } from '../../../components/molecules/table-header/table-header';
+import { ReviewCard } from '../../../components/molecules/review-card/review-card';
+import { NotificationItem } from '../../../components/molecules/notification-item/notification-item';
+import { Button } from '../../../components/atoms/button/button';
 
 // Sample data for the dashboard
 const dashboardStats: StatsCardProps[] = [
@@ -287,7 +288,7 @@ export default function ServiceProviderDashboard() {
                   View All
                 </Button>
               </div>
-              <DataTable
+              <Table
                 columns={upcomingJobsColumns}
                 data={upcomingJobsData}
                 loading={loading}

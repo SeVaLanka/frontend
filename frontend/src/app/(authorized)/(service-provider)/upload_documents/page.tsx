@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import ServiceProviderLayout from '../../components/organism/service-provider-layout/service-provider-layout';
-import FileUpload from '../../components/molecules/file-upload/file-upload';
-import DocumentList from '../../components/molecules/document-list/document-list';
+import ServiceProviderLayout from '../../../components/organism/service-provider-layout/service-provider-layout';
+import FileUpload from '../../../components/molecules/file-upload/file-upload';
+import DocumentList from '../../../components/molecules/document-list/document-list';
 
 interface Document {
   id: string;
