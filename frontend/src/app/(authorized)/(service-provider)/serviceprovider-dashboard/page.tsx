@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ServiceProviderLayout } from '../../../components/organism/service-provider-layout/service-provider-layout';
+import { UnifiedLayout } from '../../../components/organism/unified-layout/unified-layout';
 import { DashboardStatsGrid } from '../../../components/organism/dashboard-stats-grid/dashboard-stats-grid';
 import { StatsCardProps } from '../../../components/atoms/stats-card/stats-card';
 import { SimpleBarChart, ChartDataPoint } from '../../../components/molecules/simple-bar-chart/simple-bar-chart';
@@ -227,7 +227,7 @@ export default function ServiceProviderDashboard() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <ServiceProviderLayout activePageId="dashboard">
+    <UnifiedLayout userRole="service-provider" activePageId="dashboard">
       <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-8">
           {/* Stats Grid */}
@@ -318,6 +318,6 @@ export default function ServiceProviderDashboard() {
           </div>
         </div>
       </div>
-    </ServiceProviderLayout>
+    </UnifiedLayout>
   );
 }
